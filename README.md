@@ -1,4 +1,4 @@
 # Дипломная работа Yandex.Praktikum. Backend.
 
-Домен - https://api.news.students.nomoreparties.xyz
-IP: 130.193.51.30
+Домен - https://www.api.news.svcore.students.nomoreparties.xyz/
+IP: 178.154.254.5
