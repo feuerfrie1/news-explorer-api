@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 const mongoose = require('mongoose');
 
 const articleSchema = new mongoose.Schema({
@@ -31,9 +30,10 @@ const articleSchema = new mongoose.Schema({
     required: true,
   },
   owner: {
-    type: Object,
-    required: true,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
+    required: true,
+    select: false,
   },
 });
 

@@ -23,11 +23,10 @@ mongoose.connect('mongodb://localhost:27017/news', {
   useUnifiedTopology: true,
 });
 
+app.use(requestLogger);
 app.use(limiter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(requestLogger);
 
 app.use('/', authRouter);
 
