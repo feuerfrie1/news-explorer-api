@@ -1,5 +1,4 @@
 const Article = require('../models/article');
-const BadRequestError = require('../errors/bad-request-err');
 const ForbiddenError = require('../errors/forbidden-err');
 const NotFoundError = require('../errors/not-found-err');
 const { notFoundId, forbiddenError, success } = require('../utils/const');
@@ -8,7 +7,7 @@ module.exports.getArticles = (req, res, next) => {
   const owner = req.user._id;
   Article.find({ owner })
     .then((articles) => res.send(articles))
-    .catch((err) => next(new BadRequestError(err)));
+    .catch(next);
 };
 
 module.exports.createArticle = (req, res, next) => {
@@ -29,7 +28,7 @@ module.exports.createArticle = (req, res, next) => {
       link: article.link,
       image: article.image,
     }))
-    .catch((err) => next(new BadRequestError(err)));
+    .catch(next);
 };
 
 module.exports.deleteArticle = (req, res, next) => {
